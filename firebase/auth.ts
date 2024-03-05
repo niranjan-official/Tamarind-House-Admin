@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 import { auth } from './config'; 
 
 export const useAuth = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<Record<string, any> | null>(null);
   const router = useRouter();
 
   useEffect(() => {
