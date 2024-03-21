@@ -84,7 +84,7 @@ const AddUserButton = () => {
                 value={formData.year}
                 onChange={(e) => setData({ ...formData, year: e.target.value })}
                 className="p-2 bg-transparent border-b-2 border-red-950 mt-3 w-80 placeholder:text-red-950 placeholder:opacity-50 focus:ring-0 focus:outline-none"
-                placeholder="Current Year"
+                placeholder="Joining Year"
                 type="number"
                 required
               />

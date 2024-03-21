@@ -5,7 +5,7 @@ import React from "react";
 const RefreshButton = () => {
   const Router = useRouter();
   return (
-    <button onClick={() => Router.refresh()} className="hover:scale-110">
+    <button onClick={() => window.location.reload()} className="hover:scale-110">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"

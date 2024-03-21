@@ -10,9 +10,10 @@ export const useAuth = () => {
       const unsubscribe = auth.onAuthStateChanged((user) => {
         if (user) {
           setUser(user);
-          localStorage.setItem('adminData', JSON.stringify(user));
+          localStorage.setItem('admin', JSON.stringify(user));
         } else {
           setUser(null);
+          localStorage.removeItem('admin');
           localStorage.removeItem('adminData');
           router.push('/login');
         }

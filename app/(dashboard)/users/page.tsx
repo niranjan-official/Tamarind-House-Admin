@@ -7,6 +7,7 @@ import React from "react";
 
 const getUsers = async () => {
   const data: StudentData[] = await getAllUsers();
+  // const data : any[] = [];
   console.log("Data: ", data);
   return data;
 };
