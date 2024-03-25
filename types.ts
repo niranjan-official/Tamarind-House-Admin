@@ -17,6 +17,7 @@ export interface ADMIN {
 export interface TOKEN_CARD {
     tokenId : string | number,
     studentId: string,
+    studentName: string,
     isCollected: boolean,
     date: string,
     generationTime: string,
