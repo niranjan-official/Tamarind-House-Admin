@@ -42,6 +42,7 @@ const page = () => {
                 key={key}
                 tokenId={obj.id}
                 studentId={obj.data.id}
+studentName={obj.data.name}
                 isCollected={obj.data.isCollected}
                 date={obj.data.date}
                 generationTime={obj.data.generationTime}
