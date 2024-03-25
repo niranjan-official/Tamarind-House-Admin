@@ -7,6 +7,7 @@ import React, { MouseEventHandler } from "react";
 const TokenCard = ({
   tokenId,
   studentId,
+  studentName,
   isCollected,
   date,
   generationTime,
@@ -33,6 +34,10 @@ const TokenCard = ({
     >
       <div className="flex flex-col justify-evenly">
         <h1 className="text-2xl font-bold">Token ID: {tokenId}</h1>
+        <h2 className="">
+          Name:
+          <span className="font-semibold"> {studentName}</span>
+        </h2>
         <h2 className="">
           Student ID:
           <span className="font-semibold"> {studentId}</span>
