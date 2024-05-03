@@ -72,6 +72,11 @@ const page = () => {
           </svg>
           </div>
         )}
+        {
+          (!load && !tokens[0]) && (
+            <h1 className="text-center text-7xl slate-950 font-extrabold opacity-20 mt-8">EMPTY</h1>
+          )
+        }
       </div>
     </div>
   );
