@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 
-const NavBar = () => {
+const Sidebar = () => {
   const active = "bg-red-100 bg-opacity-30 rounded-lg shadow-md";
   const pathname = usePathname();
 
@@ -88,4 +88,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default Sidebar;

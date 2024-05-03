@@ -1,10 +1,12 @@
 import Image from 'next/image'
 import React from 'react'
-import NavBar from './NavBar'
+import Sidebar from './Sidebar'
+import NavButton from './NavButton'
+
 
 const Menu = () => {
   return (
-    <div className="w-5/6 h-full md:w-1/5 p-4 md:relative bg-primary z-50 hidden md:block">
+    <div className="w-full md:w-max h-full flex sm:flex-col max-sm:justify-between p-4 md:relative bg-primary z-50">
         <div className="flex items-center gap-2">
           <Image
             src={"/prc-logo.svg"}
@@ -15,8 +17,11 @@ const Menu = () => {
           />
           <h1 className="text-red-100 text-2xl">Admin Panel</h1>
         </div>
+        <div className='max-sm:hidden'>
         <hr className="my-4" />
-        <NavBar/>
+        <Sidebar/>
+        </div>
+        <NavButton/>
       </div>
   )
 }
