@@ -41,7 +41,7 @@ const AddUserButton = () => {
   };
   return (
     <Dialog>
-      <DialogTrigger>
+      <DialogTrigger asChild>
         <button className="flex gap-1 items-center p-2 px-3 bg-green-600 text-white rounded-xl hover:bg-green-800">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +64,7 @@ const AddUserButton = () => {
             >
               <input
                 value={formData.id}
-                onChange={(e) => setData({ ...formData, id: e.target.value })}
+                onChange={(e) => setData({ ...formData, id: e.target.value.trim() })}
                 className="p-2 bg-transparent border-b-2 border-red-950 mt-3 w-80 placeholder:text-red-950 placeholder:opacity-50 focus:ring-0 focus:outline-none"
                 placeholder="Registration ID"
                 type="text"
@@ -73,7 +73,7 @@ const AddUserButton = () => {
               <input
                 value={formData.email}
                 onChange={(e) =>
-                  setData({ ...formData, email: e.target.value })
+                  setData({ ...formData, email: e.target.value.trim() })
                 }
                 className="p-2 bg-transparent border-b-2 border-red-950 mt-3 w-80 placeholder:text-red-950 placeholder:opacity-50 focus:ring-0 focus:outline-none"
                 placeholder="College Mail"

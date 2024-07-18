@@ -34,7 +34,7 @@ const page = () => {
         </div>
         <hr className="b-2 border-zinc-500 my-4" />
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 overflow-scroll">
         {!load ? (
           tokens.map((obj, key) => {
             return (

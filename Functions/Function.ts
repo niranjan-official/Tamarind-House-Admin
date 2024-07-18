@@ -52,6 +52,7 @@ export const getAllUsers = async () => {
       console.log(doc.id, " => ", doc.data());
       const userData: StudentData = {
         id: doc.data().id,
+        name: doc.data().name,
         year: doc.data().year,
         program: doc.data().program,
         gender: doc.data().gender,

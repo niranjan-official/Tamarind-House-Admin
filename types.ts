@@ -2,6 +2,7 @@ export type StudentData = {
     year?: number | string;
     program?: "btech" | "mba" | string;
     gender?: "male" | "female" | string;
+    name?: string;
     email: string;
     id: string;
     date?: Date;
