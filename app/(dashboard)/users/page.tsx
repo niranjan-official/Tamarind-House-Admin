@@ -5,6 +5,7 @@ import { UserTable } from "@/components/userTable/UsersTable";
 import { StudentData } from "@/types";
 import React from "react";
 
+export const revalidate = 0;
 const getUsers = async () => {
   const data: StudentData[] = await getAllUsers();
   // const data : any[] = [];
@@ -24,7 +25,7 @@ const Users = async () => {
         <AddUserButton />
       </div>
       <hr className="my-4 b-2 border-black" />
-      <div className="flex flex-1 justify-center overflow-y-scroll">
+      <div className="flex flex-1 justify-center overflow-scroll">
         <UserTable userData={userData} />
       </div>
     </div>
