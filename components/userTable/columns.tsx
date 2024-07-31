@@ -52,19 +52,13 @@ export const columns: ColumnDef<StudentData>[] = [
     header: () => {
       return (
         <span className="flex items-center gap-1">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            className="w-5 h-5"
-          >
-            <path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z" />
-            <path d="m19 8.839-7.77 3.885a2.75 2.75 0 0 1-2.46 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z" />
-          </svg>
           Name
         </span>
       );
     },
+    cell: ({ row }) => (
+      <div className="w-28 truncate">{row.getValue("name")}</div>
+    ),
   },
   {
     accessorKey: "email",
@@ -84,6 +78,9 @@ export const columns: ColumnDef<StudentData>[] = [
         </span>
       );
     },
+    cell: ({ row }) => (
+      <div className="text-sm w-40 truncate">{row.getValue("email")}</div>
+    ),
   },
   {
     accessorKey: "year",
@@ -92,6 +89,7 @@ export const columns: ColumnDef<StudentData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="max-sm:hidden"
         >
           Year
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -99,7 +97,7 @@ export const columns: ColumnDef<StudentData>[] = [
       );
     },
     cell: ({ row }) => (
-      <div className="text-center ">{row.getValue("year")}</div>
+      <div className="text-center max-sm:hidden">{row.getValue("year")}</div>
     ),
   },
   {
@@ -109,6 +107,7 @@ export const columns: ColumnDef<StudentData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="max-sm:hidden"
         >
           Program
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -116,7 +115,7 @@ export const columns: ColumnDef<StudentData>[] = [
       );
     },
     cell: ({ row }) => (
-      <div className="text-center uppercase">{row.getValue("program")}</div>
+      <div className="text-center uppercase max-sm:hidden">{row.getValue("program")}</div>
     ),
   },
   {
@@ -126,6 +125,7 @@ export const columns: ColumnDef<StudentData>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="max-sm:hidden"
         >
           Gender
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -133,7 +133,7 @@ export const columns: ColumnDef<StudentData>[] = [
       );
     },
     cell: ({ row }) => (
-      <div className="text-center ">{row.getValue("gender")}</div>
+      <div className="text-center max-sm:hidden">{row.getValue("gender")}</div>
     ),
   },
   {

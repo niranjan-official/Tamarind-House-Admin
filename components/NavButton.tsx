@@ -12,7 +12,7 @@ import Image from "next/image";
 
 const NavButton = () => {
   return (
-    <div className="sm:hidden">
+    <div className="md:hidden">
       <Sheet>
         <SheetTrigger>
           <svg

@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState } from "react";
+import React from "react";
 
 const Sidebar = () => {
   const active = "bg-red-100 bg-opacity-30 rounded-lg shadow-md";
@@ -9,10 +9,8 @@ const Sidebar = () => {
 
   return (
     <div className="flex flex-col text-white gap-2">
-      <Link href={'/home'}>
-        <div
-          className={`flex gap-2 p-2 ${pathname === "/home" ? active : ""} `}
-        >
+      <Link href={"/"}>
+        <div className={`flex gap-2 p-2 ${pathname === "/" && active} `}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -26,10 +24,8 @@ const Sidebar = () => {
           <h2 className="">Home</h2>
         </div>
       </Link>
-      <Link href={'/users'}>
-        <div
-          className={`flex gap-2 p-2 ${pathname === "/users" ? active : ""} `}
-        >
+      <Link href={"/users"}>
+        <div className={`flex gap-2 p-2 ${pathname === "/users" && active} `}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -42,10 +38,8 @@ const Sidebar = () => {
           <h2 className="">Users</h2>
         </div>
       </Link>
-      <Link href={'/system'}>
-        <div
-          className={`flex gap-2 p-2 ${pathname === "/system" ? active : ""} `}
-        >
+      <Link href={"/system"}>
+        <div className={`flex gap-2 p-2 ${pathname === "/system" && active} `}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -62,11 +56,9 @@ const Sidebar = () => {
           <h2 className="">System Info</h2>
         </div>
       </Link>
-      <Link href={'/settings'}>
+      <Link href={"/history"}>
         <div
-          className={`flex gap-2 p-2 ${
-            pathname === "/settings" ? active : ""
-          } `}
+          className={`flex gap-2 p-2 ${pathname === "/settings" && active} `}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +73,7 @@ const Sidebar = () => {
             />
           </svg>
 
-          <h2 className="">Settings</h2>
+          <h2 className="">History</h2>
         </div>
       </Link>
     </div>

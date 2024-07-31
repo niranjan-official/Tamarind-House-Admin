@@ -11,7 +11,7 @@ import {
 import { addUser } from "@/Functions/Function";
 import { StudentData } from "@/types";
 import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { VscLoading } from "react-icons/vsc";
 
 const AddUserButton = () => {
   const [formData, setData] = useState<StudentData>({
@@ -21,8 +21,12 @@ const AddUserButton = () => {
     gender: "",
     program: "",
   });
+  const [load, setLoad] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(formData);
+    setLoad(true);
     const status = await addUser(formData);
     if (status.success) {
       alert("User added successfully");
@@ -38,10 +42,11 @@ const AddUserButton = () => {
     } else {
       alert("Unknown error occured");
     }
+    setLoad(false);
   };
   return (
     <Dialog>
-      <DialogTrigger asChild>
+      <DialogTrigger>
         <button className="flex gap-1 items-center p-2 px-3 bg-green-600 text-white rounded-xl hover:bg-green-800">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +59,7 @@ const AddUserButton = () => {
           <span className="max-sm:hidden">Add User</span>
         </button>
       </DialogTrigger>
-      <DialogContent className="w-max">
+      <DialogContent>
         <DialogHeader>
           <DialogTitle className="text-3xl text-center">Add User</DialogTitle>
           <DialogDescription>
@@ -64,8 +69,13 @@ const AddUserButton = () => {
             >
               <input
                 value={formData.id}
-                onChange={(e) => setData({ ...formData, id: e.target.value.trim() })}
-                className="p-2 bg-transparent border-b-2 border-red-950 mt-3 w-80 placeholder:text-red-950 placeholder:opacity-50 focus:ring-0 focus:outline-none"
+                onChange={(e) =>
+                  setData({
+                    ...formData,
+                    id: e.target.value.trim().toLowerCase(),
+                  })
+                }
+                className="p-2 bg-transparent border-b-2 border-red-950 mt-3 w-full placeholder:text-red-950 placeholder:opacity-50 focus:ring-0 focus:outline-none"
                 placeholder="Registration ID"
                 type="text"
                 required
@@ -73,9 +83,12 @@ const AddUserButton = () => {
               <input
                 value={formData.email}
                 onChange={(e) =>
-                  setData({ ...formData, email: e.target.value.trim() })
+                  setData({
+                    ...formData,
+                    email: e.target.value.trim().toLowerCase(),
+                  })
                 }
-                className="p-2 bg-transparent border-b-2 border-red-950 mt-3 w-80 placeholder:text-red-950 placeholder:opacity-50 focus:ring-0 focus:outline-none"
+                className="p-2 bg-transparent border-b-2 border-red-950 mt-3 w-full placeholder:text-red-950 placeholder:opacity-50 focus:ring-0 focus:outline-none"
                 placeholder="College Mail"
                 type="text"
                 required
@@ -83,7 +96,7 @@ const AddUserButton = () => {
               <input
                 value={formData.year}
                 onChange={(e) => setData({ ...formData, year: e.target.value })}
-                className="p-2 bg-transparent border-b-2 border-red-950 mt-3 w-80 placeholder:text-red-950 placeholder:opacity-50 focus:ring-0 focus:outline-none"
+                className="p-2 bg-transparent border-b-2 border-red-950 mt-3 w-full placeholder:text-red-950 placeholder:opacity-50 focus:ring-0 focus:outline-none"
                 placeholder="Joining Year"
                 type="number"
                 required
@@ -143,9 +156,13 @@ const AddUserButton = () => {
               </div>
               <button
                 type="submit"
-                className="w-1/2 p-2 bg-red-700 hover:bg-red-900 text-xl text-white rounded-md mt-6"
+                className="w-1/2 flex justify-center items-center p-2 bg-red-700 hover:bg-red-900 text-xl text-white rounded-md mt-6"
               >
-                Add
+                {load ? (
+                  <VscLoading size={20} className="animate-spin" />
+                ) : (
+                  "Add"
+                )}
               </button>
             </form>
           </DialogDescription>

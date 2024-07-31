@@ -1,6 +1,5 @@
 "use client";
 import { Login, checkAdmin } from "@/Functions/Function";
-import { Router } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
@@ -36,7 +35,7 @@ export const LoginForm = () => {
       console.log("Login Status: " + status);
 
       if (status.success) {
-        Router.push("/home");
+        Router.push("/");
       } else {
         alert(status.error);
         setLoad(false);
